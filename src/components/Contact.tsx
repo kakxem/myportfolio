@@ -66,7 +66,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center bg-slate-900/70 p-10  rounded-3xl w-full max-w-3xl "
+          className="text-center bg-slate-900/70 p-10 rounded-3xl w-full max-w-3xl "
         >
           <form
             onSubmit={handleSubmit}
@@ -78,7 +78,7 @@ export default function Contact() {
               type="text"
               placeholder="Name*"
               name="name"
-              className="bg-slate-800/70 p-3 pl-5 w-3/4 rounded-lg outline-none text-lg"
+              className="bg-slate-800/70 p-3 pl-5 md:w-3/4 rounded-lg outline-none text-lg"
               onChange={e => setFormData({ ...formData, name: e.target.value })}
               value={formData.name}
               required
@@ -88,7 +88,7 @@ export default function Contact() {
               whileFocus={{ scale: 1.05 }}
               placeholder="E-mail*"
               name="email"
-              className="bg-slate-800/70 p-3 pl-5 w-3/4 rounded-lg outline-none text-lg"
+              className="bg-slate-800/70 p-3 pl-5 md:w-3/4 rounded-lg outline-none text-lg"
               type="email"
               onChange={e =>
                 setFormData({ ...formData, email: e.target.value })
@@ -102,7 +102,7 @@ export default function Contact() {
               placeholder="Subject*"
               name="subject"
               type="text"
-              className="bg-slate-800/70 p-3 pl-5 w-3/4 rounded-lg outline-none text-lg"
+              className="bg-slate-800/70 p-3 pl-5 md:w-3/4 rounded-lg outline-none text-lg"
               onChange={e =>
                 setFormData({ ...formData, subject: e.target.value })
               }
@@ -114,7 +114,7 @@ export default function Contact() {
               whileFocus={{ scale: 1.05 }}
               placeholder="Write your message here...*"
               name="message"
-              className="bg-slate-800/70 mt-2 p-3 pl-5 w-3/4 rounded-lg outline-none h-36 text-lg resize-none"
+              className="bg-slate-800/70 mt-2 p-3 pl-5 md:w-3/4 rounded-lg outline-none md:h-36 h-72 text-lg resize-none"
               onChange={e =>
                 setFormData({ ...formData, message: e.target.value })
               }
