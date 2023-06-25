@@ -78,7 +78,7 @@ export default function AboutMe() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="m-3 bg-slate-900/70 p-5 rounded-3xl flex flex-wrap justify-center gap-3"
+          className="m-3 bg-slate-900/70 p-5 rounded-3xl flex flex-wrap 2xl:flex-col justify-center gap-3"
         >
           <Link href="https://cv.kakxem.dev">
             <CVIcon /> CV
