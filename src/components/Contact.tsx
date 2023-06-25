@@ -114,7 +114,7 @@ export default function Contact() {
               whileFocus={{ scale: 1.05 }}
               placeholder="Write your message here...*"
               name="message"
-              className="bg-slate-800/70 p-3 pl-5 w-3/4 rounded-lg outline-none h-24 text-lg"
+              className="bg-slate-800/70 mt-2 p-3 pl-5 w-3/4 rounded-lg outline-none h-36 text-lg resize-none"
               onChange={e =>
                 setFormData({ ...formData, message: e.target.value })
               }
