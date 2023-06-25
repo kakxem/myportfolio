@@ -39,7 +39,7 @@ export default function SkillSection({
       onMouseEnter={handleOnHover}
       onMouseLeave={handleOnLeave}
       className={`${
-        selectedIndex !== null && selectedIndex !== index ? "blur" : ""
+        selectedIndex !== null && selectedIndex !== index ? "blur-sm" : ""
       } flex flex-col flex-wrap min-w-[400px] max-w-sm text-center bg-slate-900/70 p-5 rounded-2xl transition-all duration-500`}
     >
       <h2 className="text-4xl font-bold">{title}</h2>

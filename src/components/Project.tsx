@@ -93,7 +93,7 @@ export default function Project({
             setPopoverName(isOpen ? null : title)
           }}
           className={`${
-            selectedIndex !== null && selectedIndex !== index ? "blur" : ""
+            selectedIndex !== null && selectedIndex !== index ? "blur-sm" : ""
           } bg-slate-900/70 min-h-[18rem] w-80 rounded-3xl flex flex-col justify-around p-2 transition-all duration-500`}
         >
           <h2 className="text-2xl font-bold text-center">{title}</h2>
