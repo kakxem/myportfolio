@@ -5,7 +5,9 @@ import {
   DockerIcon,
   JavaScriptIcon,
   PythonIcon,
+  ReactIcon,
   RustIcon,
+  SvelteIcon,
   TypeScriptIcon,
 } from "../assets/svg/skills"
 import { useWindowStore } from "../store/window"
@@ -18,8 +20,8 @@ interface ProjectProps {
   index: number
 }
 
-interface Images {
-  [key: string]: JSX.Element | string
+interface Icons {
+  [key: string]: JSX.Element
 }
 
 export default function Project({
@@ -34,13 +36,20 @@ export default function Project({
   const popoverName = useWindowStore(state => state.popoverName)
   const setPopoverName = useWindowStore(state => state.setPopoverName)
 
-  const images: Images = useMemo(() => {
+  const languageIcons: Icons = useMemo(() => {
     return {
       JavaScript: <JavaScriptIcon />,
       TypeScript: <TypeScriptIcon />,
       Rust: <RustIcon />,
       Python: <PythonIcon />,
+      Svelte: <SvelteIcon />,
+    }
+  }, [])
+
+  const titleIcons: Icons = useMemo(() => {
+    return {
       "Icecast2_ezstream-ARM": <DockerIcon />,
+      myportfolio: <ReactIcon />,
     }
   }, [])
 
@@ -99,7 +108,11 @@ export default function Project({
           <h2 className="text-2xl font-bold text-center">{title}</h2>
           <motion.div animate={{ scale: isOpen ? 1.1 : 1 }}>
             <div className="flex flex-col justify-center items-center">
-              <div className="w-28 h-28">{images[language ?? title]}</div>
+              <div className="w-28 h-28">
+                {Object.keys(titleIcons).includes(title)
+                  ? titleIcons[title]
+                  : languageIcons[language]}
+              </div>
             </div>
           </motion.div>
 
