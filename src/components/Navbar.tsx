@@ -35,6 +35,7 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
           >
             <Typewriter
+              options={{ autoStart: true, delay: 100 }}
               onInit={typewriter => {
                 typewriter.typeString("Click a section...").start()
               }}
