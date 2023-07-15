@@ -23,8 +23,6 @@ interface WindowState {
   setSelectedIndex: (index: number | null) => void
   loading: boolean
   setLoading: (state: boolean) => void
-  popoverName: string | null
-  setPopoverName: (state: string | null) => void
 }
 
 export const useWindowStore = create<WindowState>((set, get) => ({
@@ -36,7 +34,6 @@ export const useWindowStore = create<WindowState>((set, get) => ({
       actualComponent: component,
       initialState: component ? false : true,
       loading: true,
-      popoverName: null,
     })
     setTimeout(() => set({ loading: false }), 500)
   },
@@ -51,6 +48,4 @@ export const useWindowStore = create<WindowState>((set, get) => ({
   },
   loading: false,
   setLoading: state => set({ loading: state }),
-  popoverName: null,
-  setPopoverName: state => set({ popoverName: state }),
 }))

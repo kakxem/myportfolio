@@ -1,3 +1,4 @@
+import { useState } from "react"
 import gtk_img from "../assets/images/gtk_logo.webp"
 import {
   DockerIcon,
@@ -76,18 +77,41 @@ const SKILL_SECTIONS: SkillSection[] = [
 ]
 
 export default function Skills() {
+  const [selectedSection, setSelectedSection] = useState<number | null>(null)
+
+  const handleEnter = (sectionIndex: number) => {
+    setSelectedSection(sectionIndex)
+  }
+
+  const handleLeave = () => {
+    setSelectedSection(null)
+  }
+
   return (
     <Content>
       <div className="flex justify-center flex-wrap gap-5">
-        {SKILL_SECTIONS.map(({ title, skills }, index) => (
-          <SkillSection
-            key={index}
-            index={index}
-            title={title}
-            skills={skills}
-            delay={index * 0.2}
-          />
-        ))}
+        {SKILL_SECTIONS.map(({ title, skills }, index) => {
+          const isSelected =
+            selectedSection != null && selectedSection !== index
+
+          return (
+            <div
+              key={index}
+              onMouseEnter={() => handleEnter(index)}
+              onMouseLeave={handleLeave}
+              className={`${
+                isSelected && "opacity-10"
+              } transition-opacity duration-200`}
+            >
+              <SkillSection
+                index={index}
+                title={title}
+                skills={skills}
+                selectedSection={selectedSection}
+              />
+            </div>
+          )
+        })}
       </div>
     </Content>
   )

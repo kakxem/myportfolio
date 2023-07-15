@@ -9,11 +9,13 @@ interface SkillProps {
   img?: string
   svg?: JSX.Element
   score: number
+  index: number
 }
 
-export default function Skill({ name, img, svg, score }: SkillProps) {
-  const popoverName = useWindowStore(state => state.popoverName)
-  const setPopoverName = useWindowStore(state => state.setPopoverName)
+export default function Skill({ name, img, svg, score, index }: SkillProps) {
+  const selectedIndex = useWindowStore(state => state.selectedIndex)
+  const setSelectedIndex = useWindowStore(state => state.setSelectedIndex)
+
   const [scoreArray, setScoreArray] = useState<JSX.Element[]>([])
 
   useEffect(() => {
@@ -30,18 +32,21 @@ export default function Skill({ name, img, svg, score }: SkillProps) {
     setScoreArray(iconArray)
   }, [score])
 
-  const isOpen = useMemo(() => popoverName === name, [popoverName, name])
+  const isSelected = useMemo(
+    () => selectedIndex === index,
+    [index, selectedIndex]
+  )
 
   const handleOnHover = () => {
-    setPopoverName(name)
+    setSelectedIndex(index)
   }
   const handleOnLeave = () => {
-    setPopoverName(null)
+    setSelectedIndex(null)
   }
 
   return (
     <Popover
-      isOpen={isOpen}
+      isOpen={isSelected}
       positions={["bottom", "right", "left", "top"]}
       containerStyle={{ zIndex: "100" }}
       containerClassName="z-10"
@@ -76,7 +81,7 @@ export default function Skill({ name, img, svg, score }: SkillProps) {
         onMouseEnter={handleOnHover}
         onMouseLeave={handleOnLeave}
         onClick={() => {
-          setPopoverName(isOpen ? null : name)
+          setSelectedIndex(isSelected ? null : index)
         }}
         className="flex flex-wrap items-center justify-center"
       >
