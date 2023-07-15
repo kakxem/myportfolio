@@ -4,6 +4,7 @@ import { ArrowContainer, Popover } from "react-tiny-popover"
 import {
   DockerIcon,
   JavaScriptIcon,
+  LinuxIcon,
   PythonIcon,
   ReactIcon,
   RustIcon,
@@ -51,6 +52,7 @@ export default function Project({
     return {
       "Icecast2_ezstream-ARM": <DockerIcon />,
       myportfolio: <ReactIcon />,
+      "nixos-dotfiles": <LinuxIcon />,
     }
   }, [])
 
